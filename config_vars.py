@@ -27,4 +27,4 @@ def set_heroku_vars(token_name='EARTHENGINE_TOKEN'):
 
 if __name__ == '__main__':
 
-    set_heroku_vars(token_name='EARTHENGINE_TOKEN')
+    set_heroku_vars(token_name='0gWSrpBai8uGnCgYIARAAGBASNwF-L9Ir6tj5BlfjqweEDwZmSPFoSN_2CkUmwI0nKW0tpw6kDCfybuAjSJNbiCmubpZO0BYG37g')
