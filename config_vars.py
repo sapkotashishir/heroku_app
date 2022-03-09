@@ -1,5 +1,4 @@
 import os
-import platform
 from subprocess import DEVNULL, STDOUT, check_call
 
 def set_heroku_vars(token_name='EARTHENGINE_TOKEN'):
@@ -18,16 +17,9 @@ def set_heroku_vars(token_name='EARTHENGINE_TOKEN'):
         else:
             with open(ee_token_file) as f:
                 content = f.read()
-                token = content.split(':')[1].strip()[1:-2]
-                # if platform.system() == 'Linux':
-                #     token = content.split(':')[1][1:-3]
-                # else:
-                #     token = content.split(':')[1][2:-2]
+                token = content.split(':')[1][2:-2]
                 secret = '{}={}'.format(token_name, token)
-                if platform.system() == 'Windows':
-                    check_call(['heroku', 'config:set', secret], stdout=DEVNULL, stderr=STDOUT, shell=True)
-                else:
-                    check_call(['heroku', 'config:set', secret], stdout=DEVNULL, stderr=STDOUT)
+                check_call(['heroku', 'config:set', secret], stdout=DEVNULL, stderr=STDOUT, shell=True)
 
     except Exception as e:
         print(e)
